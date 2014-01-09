@@ -1,0 +1,19 @@
+<article class="content-item blog-post-summary" onclick="if (event.button == 0){location.href='{{ post.url | furl }}';}">
+  <a href="{{ post.url | furl }}" title="{{ post.title }}">
+    <img src="{{ site.dropbox }}/posts{{ post.id }}/title.jpg" alt="{{ post.title }}" width="320" height="150">
+  </a>
+  <header>
+    <h2>
+      <a href="{{ post.url | furl }}">{{ post.title }}</a>
+    </h2>
+    <div class="published">{{ post.date | format_date }} | <a href="/{{post.author}}/">{{ post.author }}</a></div>
+    <a href="{{ post.url | furl }}#disqus_thread" data-disqus-identifier="{{ post.id | no_slash }}" class="commentsCount"></a>
+    <p class="taxonomy-field geo">&nbsp;|&nbsp;
+      {% for cat in post.categories %}
+        <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+        &nbsp;
+      {% endfor %}
+    </p>
+  </header>
+  <p class="body-text">{{post.content | markdownify | excerpt }}</p>
+</article>

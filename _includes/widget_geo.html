@@ -1,0 +1,17 @@
+<article class="widget-geo widget-sidebar widget-taxonomy-menu widget">
+    <header>
+        <h2>Города и страны</h2>
+    </header>
+    {% capture geo %}{{ page.url | geo_from_url }}{% endcapture %}
+    <div class="taxonomy-menu">
+        <ul class="terms">
+            {% for cat in site.categories %}
+            {% if geo == cat[0] %}
+            <li><span>{{ cat[0] | display_name }}</span></li>
+            {% else %}
+            <li><a href="/geo/{{cat[0]}}/">{{ cat[0] | display_name }}</a></li>
+            {% endif %}
+            
+            {% endfor %}
+        </ul></div>
+</article>

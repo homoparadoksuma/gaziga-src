@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<article class="geo content-item">
+    <header>
+        <h1>{{ page.tag }}</h1>
+    </header>
+
+    <ul class="blog-posts content-items">
+    {% for post in site.tags[page.tag] %}
+        <li>
+          {% include post_summary.html %}
+        </li>
+    {% endfor %}
+    </ul>
+</article>
+
+{% contentfor footer %}
+{% include disqus_count.html %}
+{% endcontentfor %}
+
+

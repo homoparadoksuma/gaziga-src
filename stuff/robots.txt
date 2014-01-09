@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin
+Disallow: /rss
+Disallow: /search/
+Sitemap: http://gaziga.com/sitemap.xml

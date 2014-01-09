@@ -1,0 +1,11 @@
+<li>
+    <div class="day">{{ item.date | date: "%d" }}</div>
+    <a class="title" href="{{ item.url | furl }}" title="{{ item.title }}">{{ item.title }}</a>
+
+    <a class="author" href="/{{ item.author }}/">{{ item.author }}</a>
+        <div class="geo">
+         {% for cat in item.categories %}
+             <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+        {% endfor %}
+        </div>
+</li>

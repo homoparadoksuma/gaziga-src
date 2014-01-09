@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      {% include head.html %}
+      {% include post_head.html %}
+    </head>
+    <body>
+      <div class="page post">
+        {% include header.html %}
+        <div class="sidebar"></div>
+        {% include channels.html %}
+        <div class="zone zone-content">
+            <article class="content-item blog-post">
+                <header>
+                    <h1>{{ page.title }}</h1><div class="metadata">
+                    <div class="published">{{ page.date | format_date }} | <a href="/{{ page.author }}/">{{ page.author }}</a></div>
+                    <p class="taxonomy-field geo">&nbsp;| &nbsp;
+                    {% for cat in page.categories %}
+                    <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+                    &nbsp;
+                    {% endfor %}
+                    </p></div></header>
+                <div class="post-content">
+                    {{ content | process_img }}
+                    {% include post_pager.html %}
+                    {% include disqus_comments.html %}
+                </div>
+            </article>
+        </div>
+        {% include footer.html %}
+      </div>
+      {% include ga.html %}
+      {% include scripts.html %}
+    </body>
+</html>

@@ -1,0 +1,1042 @@
+﻿//variables
+@headerFontFamily: 'Avenir Next', 'Century Gothic',sans-serif;
+@contentFontFamily: 'Lucida Grande', Verdana, Corbel, 'Trebuchet MS', sans-serif;
+
+@contentFont: 15px e('/') 22px @contentFontFamily;
+
+@navigationFont: 1.3em @headerFontFamily;
+
+@contentColor: #333;
+@contentBgColor: #FcFcFc;
+@highColor: #993300;
+@borderColor: darken(@contentBgColor, 6%);
+@contentColorLight: lighten(@contentColor, 30%);
+@linkColor: @highColor;
+
+@pageWidth: 1000px;
+@contentWidth: @pageWidth - @sidebarWidth - 20px;
+@sidebarWidth: 200px;
+@contentMarginTop: 80px;
+@borderLine: 1px solid @borderColor;
+@postItemWidth: 350px;
+
+// retina.less
+// A helper mixin for applying high-resolution background images (http://www.retinajs.com)
+
+@highdpi: ~"(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)";
+
+.at2x(@path, @w: auto, @h: auto) {
+  background-image: url(@path);
+  @at2x_path: ~`@{path}.replace(/\.\w+$/, function(match) { return "@2x" + match; })`;
+
+  @media @highdpi {
+    background-image: url("@{at2x_path}");
+    background-size: @w @h;
+  }
+}
+
+
+.bordered() {
+  border: @borderLine;
+}
+
+.underlined(){
+  border-bottom: @borderLine;
+}
+
+.gray-box() {
+  .bordered();
+  background-color: @contentBgColor;
+  color: @contentColor;
+}
+
+
+.blockLink(@bgColor: @contentBgColor, @padding: 0 6px){
+  display: block;
+  padding: @padding;
+  background-color: @bgColor;
+  color: @contentColor;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  font: 14px @headerFontFamily;
+
+  &:hover {
+    background-color: @highColor;//#8A0000;
+    color: white;
+  }
+}
+
+
+.link() {
+  text-decoration: none;
+  color: @linkColor;
+
+  &:hover, &.active {
+    color: @highColor;
+    border-bottom: 1px solid lighten(@highColor, 5%);
+  }
+}
+
+.contentHeader {
+  .underlined();
+  padding: 5px 0;
+  margin-bottom: 20px;
+  margin-top: 27px;
+
+  h1, h2 {
+    margin-bottom: 7px;
+    color: lighten(@contentColor, 20%);
+    font-size: 29px;
+    height: 27px;
+  }
+}
+
+
+//styles
+body {
+  min-height: 101%;
+  overflow-y: scroll;
+  margin: 70px auto;
+  background: white;
+  max-width: @pageWidth + 40px; //margins
+  min-width: 290px;
+  font: @contentFont;
+  color: @contentColor;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: @headerFontFamily;
+  font-weight: normal;
+}
+
+.page{
+  position: relative;
+  margin: 0 20px;
+}
+
+
+a{
+  .link();
+  &.photo-link{
+    border:0;
+    &:hover{
+      border:0;
+    }
+  }
+}
+
+header.pageHeader{
+  float:left;
+  display: block;
+  font-size: 53px;
+  line-height: 0.7em;
+  font-family: @headerFontFamily;
+  color: @contentColorLight;
+
+  h1{
+    font-size: 1em;
+  }
+  a{
+    //.link();
+    color: @contentColorLight;
+    border:0;
+  }
+}
+
+.zone-navigation
+{
+  float: right;
+  font: @navigationFont;
+  li{
+    display: inline;
+    margin: 0 20px;
+    font-size: 25px;
+    color: @contentColorLight;
+    padding: 0;
+    a{
+      .link();
+    }
+  }
+}
+
+.blog-posts{
+    margin-top: 18px;
+}
+
+.zone-content {
+  clear: both;
+  min-width: 290px;
+  min-height: 550px;
+  padding-top: 85px;
+  padding-bottom: 15px;
+  margin-right: 220px;
+
+
+  header {
+    .contentHeader();
+  }
+
+  .blog > header {
+    display: none;
+  }
+
+
+  .blog-post {
+    header {
+      margin-top: 5px;
+    }
+
+    .post-content {
+      img {
+        .bordered();
+        margin: 5px 8px 15px 0;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        display: block;
+        float: left;
+      }
+
+      p {
+        display:block;
+        float:left;
+        clear:both;
+      }
+    }
+
+    footer {
+      max-width: @pageWidth;
+    }
+  }
+
+
+  .content-items, .search-results, .projection-page ul {
+    header {
+      padding: 0;
+      border: 0;
+      margin: 0 35px 5px 0;
+    }
+  }
+
+  .metadata, .taxonomy-field.geo, .published {
+    color: lighten(@contentColor, 40%);
+    font-family: @headerFontFamily;
+
+    a {
+      // color: lighten(@contentColor, 40%);
+
+      &:hover {
+        color: @highColor;
+      }
+    }
+  }
+
+  .metadata, .geo {
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .published {
+    float: left;
+  }
+
+  .contact-page, .content-items, .projection-page {
+    .blog-post-summary {
+      .gray-box();
+      position: relative;
+      margin: 0 10px 20px 0;
+      height: 150px;
+      overflow: hidden;
+      cursor: pointer;
+
+      img {
+        display: block;
+        float: left;
+        margin: 0 15px 0 0;
+        padding: 0;
+      }
+
+      h2 {
+        color: lighten(@contentColor, 20%);
+
+        a {
+          color: @highColor;
+          text-decoration: none;
+          border: 0;
+          &:hover{
+            border:0;
+          }
+        }
+
+        margin: 5px 0;
+        font-size: 24px;
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+      }
+
+      .published, .geo {
+        font-size: 14px;
+        line-height: 22px;
+        color: lighten(@contentColor, 40%);
+        font-family: @headerFontFamily;
+      }
+
+      p {
+        &.body-text {
+          height: 70px;
+          display: block;
+          overflow: hidden;
+          margin: 10px 15px 10px 0;
+        }
+      }
+
+      .commentsCount {
+        .blockLink(darken(@contentBgColor, 3%), 7px 11px);
+        border-left: 1px solid darken(@contentBgColor, 6%);
+        border-bottom: 1px solid darken(@contentBgColor, 6%);
+        position: absolute;
+        min-width: 8px;
+        min-height: 19px;
+        top: 0;
+        right: 0;
+      }
+
+      .header {
+        color: #666;
+        margin: 5px 0;
+        font-size: 24px;
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        &:hover{
+          border: 0;
+        }
+      }
+    }
+  }
+}
+
+.contact-page
+{
+  [class^="icon-"]:before, [class*=" icon-"]:before { 
+    margin-right: .5em;
+  }
+
+  span{
+    &:before {
+      color: @contentColorLight;
+    }
+    color: @contentColorLight;
+  }
+
+  a{
+    display: inline-block;
+    color: @highColor;
+    margin-top: 3px;
+    &:before {
+      color: @contentColorLight;
+    }
+
+
+    &:hover {
+      text-decoration: underline;
+      color: @highColor;
+      border: 0;
+      &:before {
+        text-decoration: none;
+        color: @highColor;
+      }
+    }
+  }
+}
+
+.contact-page .blog-post-summary {
+  cursor: default !important;
+
+  span {
+    display: block;
+  }
+
+  a {
+    display: inline-block;
+    color: #930;
+    margin-top: 3px;
+  }
+
+  .header {
+    a {
+      display: inline-block;
+      margin-bottom: 6px; 
+    }
+
+    span {
+      margin-top: 3px;
+      margin-bottom: 6px;
+    }
+  }
+}
+
+.widget-channels{
+
+  font-size: 35px;
+  height: 80px;
+  margin-top: 18px;
+
+  a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: left;
+    /* margin-bottom: 20px; */
+    /* border: 0; */
+    color: #fff;
+    background-color: #808080;
+    /* margin: 5px; */
+    /* padding: 7px 0; */
+    /* margin-right: 10px; */
+    margin: 5px 8px 5px 0;
+    padding: 2px;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+
+    &:hover {
+        background-color: @highColor;
+        text-decoration: none;
+        border:0;
+    }
+
+  }
+
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+    line-height: 1.4em;
+    margin-left: .2em;
+    margin-right: .1em;
+  }
+
+  .icon-fivehundredpx:before {
+    margin-left: 0.1em;
+  }
+}
+
+.sidebar
+{
+  //clear: both;
+  //    float: right;
+  margin-top: @contentMarginTop;
+  width: @sidebarWidth;
+
+  position: absolute;
+  top: 36px;
+  right: 0;
+
+
+  .widget-sidebar{
+    h1, h2{
+      font-size: 22px;
+      color: @contentColorLight;
+    }
+    font-family: @headerFontFamily;
+    .taxonomy-menu{
+      margin-top: 10px;
+      font-size: 20px;
+      li{
+        font-size: 18px;
+        padding-top: 7px;
+        padding-left: 20px;
+      }
+      a{
+        padding-top: 5px;
+        .link();
+
+      }
+    }
+  }
+}
+
+.zone-footer
+{
+  clear: both;
+  max-width: @pageWidth;
+  padding: 5px 0;
+  border-top: solid 1px;
+  border-color: darken(@contentBgColor, 10%);
+
+}
+
+.pager{
+  font-family: @headerFontFamily;
+  font-size: 14px;
+  line-height: 20px;
+  li{
+    display: block;
+    float: left;
+    margin: 3px;
+    a{
+      .bordered();
+      .blockLink(@contentBgColor, 5px 11px);
+    }
+    .currentPage{
+      display: block;
+      background-color: #8A0000;
+      border: 1px solid darken(@contentBgColor, 6%);
+      color: white;
+      padding: 5px 11px;
+      //.bordered();
+      //.blockLink();
+    }
+  }
+}
+
+.search-form
+{
+  float: right;
+  button{
+    display: none;
+  }
+  input{
+    -webkit-appearance: none;
+    border: 1px solid #CCC;
+    color: @contentColor;
+    padding: 3px;
+    font-size: .8em;
+    width: @postItemWidth;
+  }
+}
+
+.widget-orchard-reference{
+  float:left;
+}
+
+.lightUnderscore(){
+  border-bottom: 1px solid #e9e9e2;
+}
+
+
+.content-item.gaziga-archive
+{
+  font-family: @headerFontFamily;
+  margin-bottom: 30px;
+  li{
+    clear: both;
+  }
+
+  ul.years
+  {
+
+    a.year, a.month{
+      display:block;
+      cursor: pointer;
+      .lightUnderscore();
+      font-size: 20px;
+      padding-left: 20px;
+      &:hover{
+        background-color: @contentBgColor;
+      }
+    }
+
+    ul.months{
+      margin-left: 20px;
+      font-size: 16px;
+      color: lighten(@contentColor, 25%);
+      a{
+        color: lighten(@contentColor, 25%);
+        &:hover{
+          color: @highColor;
+        }
+      }
+
+      a.month{
+        margin-top: 10px;
+      }
+
+      ul.posts{
+        margin-top: 10px;
+        margin-left: 95px;
+
+        div, a {
+          .lightUnderscore();
+          display: block;
+          float:left;
+          padding: 0 15px;
+          margin-top: 2px;
+          height:27px;
+        }
+
+        div.day{
+          width:20px;
+          text-align: center;
+        }
+
+        div.geo{
+          float:right;
+          line-height: 27px;
+          a{
+            border: none;
+            display: inline;
+            margin:2px 0 0 0;
+            padding:0;
+            float:none;
+            font-size: 12px;
+          }
+        }
+
+        a.title{
+          margin-left: 25px;
+        }
+
+        a.author{
+          margin-left: 25px;
+          width: 40px;
+          font-size: 12px;
+          //line-height: 23px;
+          padding-right: 15px;
+          float: right;
+        }
+      }
+
+    }
+  }
+
+}
+
+.manage-actions{
+  position: absolute;
+  left:-50px;
+  color: lighten(@contentColor, 50%);
+}
+
+.zone-content .blog-post .post-content {
+  .post-pager{
+    border-top: @borderLine;
+  }
+  .post-item {
+    display: block;
+
+    &.prev {
+      float: left;
+    }
+
+    &.next {
+      float: right;
+    }
+
+    .bordered();
+    .gray-box();
+    position: relative;
+    width: @postItemWidth;
+    height: 90px;
+    cursor: pointer;
+    line-height: 23px;
+    margin-top: 20px;
+
+    &:hover {
+      border-color: fadeout(@highColor, 70%);
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 90px;
+      height: 90px;
+      border: 0;
+      margin: 0;
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      display: block;
+    }
+
+    .post-item-cap {
+      position: absolute;
+      left: 100px;
+      top: 5px;
+      height: 30px;
+      width: 210px;
+      padding: 2px 0;
+      text-align: center;
+      font-family: @headerFontFamily;
+    }
+
+    .post-item-t {
+      position: absolute;
+      left: 100px;
+      top: 35px;
+
+      a {
+        //display: block;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: @highColor;
+        .link();
+
+        &:hover {
+          // text-decoration: underline;
+        }
+      }
+    }
+
+    .post-item-m {
+      color: lighten(@contentColor, 40%);
+      font-family: @headerFontFamily;
+      font-size: 14px;
+
+      a {
+        display: inline;
+      }
+
+      white-space: nowrap;
+      overflow: hidden;
+      width: 240px;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+header.search{
+  h1{
+    display: inline-block;
+  }
+
+  .search-form{
+    display: inline-block;
+    margin-right: 10px;
+    input{
+      width: 400px;
+    }
+  }
+}
+
+
+.page {
+  &.post {
+    .zone-content {
+      margin-right: 0;
+      min-width: 600px;
+      header{
+        margin-right: 220px;
+      }
+    }
+    .zone-above-sidebar{
+      position: absolute;
+      right: 14px;
+      top: 116px;
+    }
+    footer{
+      min-width: 750px;
+    }
+    .zone-footer{
+      min-width: 750px;
+    }
+  }
+}
+
+
+@media all and (max-width: 935px) {
+
+  .page {
+    .sidebar {
+      display: none;
+    }
+
+    .zone-content {
+      margin-right: 0;
+    }
+
+    body {
+      max-width: 830px;
+    }
+
+    .post{
+      body {
+        max-width: 1040px;
+      }
+    }
+  }
+}
+
+
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  *zoom: 1;
+}
+
+.disqus-wrapper{
+  margin-top: 40px;
+}
+
+
+.post-content, .text-content {
+  margin: 0 auto;
+  font-family: @contentFontFamily;
+  color: @contentColor;
+  line-height: 1;
+
+  h1, h2, h3, h4 {
+    color: @contentColor;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, p {
+    margin-bottom: 24px;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 36px;
+    /* The bottom margin is small. It's designed to be used with gray meta text
+ * below a post title. */
+    margin: 24px 0 6px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 21px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  a {
+    color: @linkColor;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: @linkColor;
+  }
+
+  a:visited {
+    color: purple;
+  }
+
+  ul, ol {
+    padding: 0;
+    margin: 10px 10px 10px 50px;
+    list-style: square;
+  }
+
+  li {
+    line-height: 24px;
+  }
+
+  li ul, li ul {
+    margin-left: 24px;
+  }
+
+  p, ul, ol {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 990px;
+    width: 100%;
+
+  }
+
+  pre {
+    padding: 0 24px;
+    max-width: 980px;
+    white-space: pre-wrap;
+  }
+
+  code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+
+  blockquote {
+    border-left: .5em solid #eee;
+    padding: 0 2em;
+    margin-left: 0;
+    max-width: 800px;
+  }
+
+  blockquote cite {
+    font-size: 14px;
+    line-height: 20px;
+    color: #bfbfbf;
+  }
+
+  blockquote cite:before {
+    content: '\2014 \00A0';
+  }
+
+  blockquote p {
+    color: #666;
+    max-width: 800px;
+  }
+
+  hr {
+    width: 900px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+  }
+}
+
+@font-face {
+  font-family: 'gaziga';
+  src: url('font/gaziga.eot?63027441');
+  src: url('font/gaziga.eot?63027441#iefix') format('embedded-opentype'),
+  url('font/gaziga.woff?63027441') format('woff'),
+  url('font/gaziga.ttf?63027441') format('truetype'),
+  url('font/gaziga.svg?63027441#gaziga') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "gaziga";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-male:before { content: '\e804'; } /* '' */
+.icon-female:before { content: '\e803'; } /* '' */
+.icon-location:before { content: '\e802'; } /* '' */
+.icon-down-open-mini:before { content: '\e809'; } /* '' */
+.icon-right-open-mini:before { content: '\e808'; } /* '' */
+.icon-fivehundredpx:before { content: '\e807'; } /* '' */
+.icon-facebook-light:before { content: '\e806'; } /* '' */
+.icon-gmail:before { content: '\e800'; } /* '' */
+.icon-rss:before { content: '\e805'; } /* '' */
+.icon-facebook:before { content: '\e801'; } /* '' */
+
+
+@media all and (max-width:750px) {
+    .zone-content .blog-post .post-content .post-item {
+        clear: both;
+    }
+
+    .zone-content .blog-post .post-content .post-item.next {
+        float: left;
+    }
+
+    .page.post .zone-content header {
+        margin-right: 0;
+    }
+
+    .zone-above-sidebar {
+        display: none;
+    }
+}
+
+@media all and (max-width:670px) {
+    .zone-content .content-items .blog-post-summary,.zone-content .projection-page .blog-post-summary {
+        padding-left: 8px;
+    }
+
+    .zone-content .content-items .blog-post-summary img,.zone-content .projection-page .blog-post-summary img {
+        display: none;
+    }
+}
+
+@media all and (max-width:590px) {
+    .zone-navigation {
+        float: left;
+        clear: both;
+        padding-top: 30px;
+        margin-left: -10px;
+    }
+
+    .zone-navigation li {
+        margin: 0 10px;
+    }
+
+    .zone-content {
+        padding-top: 45px;
+    }
+
+    body {
+        margin-top: 48px;
+    }
+
+    body .widget-search-form {
+        float: left;
+        clear: both;
+    }
+
+    body header.search .search-form {
+        display: none;
+    }
+}
+
+@media all and (max-width:935px) {
+    .page .sidebar {
+        display: none;
+    }
+
+    .page .zone-content {
+        margin-right: 0;
+    }
+
+    .page body {
+        max-width: 830px;
+    }
+
+    .page .post body {
+        max-width: 1040px;
+    }
+}
+
+
+
+
+
+

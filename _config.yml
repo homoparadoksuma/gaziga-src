@@ -1,0 +1,15 @@
+name: Gaziga
+markdown: redcarpet
+pygments: false
+encoding: utf-8
+permalink: :title
+paginate: 5
+
+url: http://gaziga.com
+site_url: http://gaziga.com
+# url: http://10.211.55.2:4000
+# site_url: http://10.211.55.2:4000
+
+dropbox: http://dl.dropboxusercontent.com/u/47629904/gaziga
+photo_dir: /Users/gagarin/Dropbox/Public/gaziga
+description: "Носим рюкзаки, варим макароны" 

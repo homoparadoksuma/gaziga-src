@@ -1,0 +1,16 @@
+<meta content="{{site.dropbox}}/posts{{page.url}}/title-s.jpg" name="og:image"/>
+<meta content="{{ page.tags | join: ', ' }}" name="keywords" />
+<meta content="" name="description" />
+{% if page.author == 'gagarin' %}
+<link href="https://plus.google.com/+EvgenyNovikov" rel="author" />
+{% endif %}
+{% if page.author == 'uma' %}
+<link href="https://plus.google.com/+UlianaShargaeva" rel="author" />
+{% endif %}
+{% if page.next %}
+    <link href="{{ site.site_url }}{{ page.next.url | furl }}" rel="next" />
+{% endif %}
+{% if page.previous %}
+    <link href="{{ site.site_url }}{{ page.previous.url | furl }}" rel="prev" />
+{% endif %}
+

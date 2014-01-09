@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<article class="geo content-item">
+    <header>
+        <h1>{{ page.category | display_name }}</h1>
+    </header>
+
+    <ul class="blog-posts content-items">
+    {% for post in site.categories[page.category] %}
+        <li>
+          {% include post_summary.html %}
+        </li>
+    {% endfor %}
+    </ul>
+</article>
+
+{% contentfor footer %}
+{% include disqus_count.html %}
+{% endcontentfor %}
+

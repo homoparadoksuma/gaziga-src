@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+    <head>
+      {% include head.html %}
+    </head>
+    <body>
+      <div class="page">
+        {% include header.html %}
+        <div class="sidebar">
+           {% include channels.html %}
+           {% include widget_geo.html %}
+        </div>
+        <div class="zone zone-content">
+            {{ content }}
+        </div>
+        {% include footer.html %}
+      </div>
+      {% include ga.html %}
+      {% include scripts.html %}
+      {% contentblock footer %}
+    </body>      
+</html>

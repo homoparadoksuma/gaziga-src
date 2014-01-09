@@ -1,0 +1,32 @@
+---
+layout: nil
+---
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="{{ site.url }}/rss.xml" rel="self" type="application/rss+xml" />
+<title>{{ site.name }}</title>
+<link>{{ site.url }}</link>
+<description>{{ site.description }}</description>
+<language>ru-RU</language>
+<copyright>Copyright {{site.time | date: '%Y'}}, gaziga.com</copyright>
+<webMaster>gagarych@gmail.com (Gagarin)</webMaster>
+
+
+{% for post in site.posts | limit:3 %}
+<item>
+<title>{{ post.title }}</title>
+<author>{{ post.author | get_email }} ({{ post.author }})</author>
+<link>{{ site.url }}{{ post.id }}</link>
+<description>
+<![CDATA[
+<a href='{{ site.url }}{{ post.id }}'><img src='{{ site.dropbox }}/posts{{ post.id }}/title.jpg' alt='{{ post.title }}' width='320px' height='150px' style='float:left;margin-right:20px'/></a>{{post.content | markdownify | decode | excerpt }}
+]]> 
+</description>
+<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+<guid isPermaLink="true">{{ site.url }}{{ post.id }}</guid>
+</item>
+{% endfor %}
+</channel>
+</rss>
+

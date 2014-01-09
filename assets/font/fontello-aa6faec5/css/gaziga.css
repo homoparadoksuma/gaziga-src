@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'gaziga';
+  src: url('../font/gaziga.eot?63027441');
+  src: url('../font/gaziga.eot?63027441#iefix') format('embedded-opentype'),
+       url('../font/gaziga.woff?63027441') format('woff'),
+       url('../font/gaziga.ttf?63027441') format('truetype'),
+       url('../font/gaziga.svg?63027441#gaziga') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'gaziga';
+    src: url('../font/gaziga.svg?63027441#gaziga') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "gaziga";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-male:before { content: '\e804'; } /* '' */
+.icon-female:before { content: '\e803'; } /* '' */
+.icon-location:before { content: '\e802'; } /* '' */
+.icon-down-open-mini:before { content: '\e809'; } /* '' */
+.icon-right-open-mini:before { content: '\e808'; } /* '' */
+.icon-fivehundredpx:before { content: '\e807'; } /* '' */
+.icon-facebook-light:before { content: '\e806'; } /* '' */
+.icon-gmail:before { content: '\e800'; } /* '' */
+.icon-rss:before { content: '\e805'; } /* '' */
+.icon-facebook:before { content: '\e801'; } /* '' */

@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<article class="blog content-item">
+    <header></header>
+<ul class="blog-posts content-items">
+  {% for post in paginator.posts %}
+    <li>
+      {% include post_summary.html %}
+    </li>
+  {% endfor %}
+</ul>
+</article>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+<!--   {% for page in (1.paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' | furl}}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page | furl }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %} -->
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' | furl }}">&laquo; Ранее</a>
+  {% else %}
+    <span>&laquo; Ранее</span>
+  {% endif %}
+  &nbsp;|&nbsp;
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' | replace: 'index.html', '' | furl}}">Далее &raquo;</a>
+  {% else %}
+    <span>Далее &raquo;</span>
+  {% endif %}
+
+
+
+</div>
+{% endif %}
+
+{% contentfor footer %}
+{% include disqus_count.html %}
+{% endcontentfor %}
+

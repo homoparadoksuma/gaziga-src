@@ -1,0 +1,29 @@
+<div class="cf"></div>
+<div class="cf post-pager">
+{% if page.previous %}
+    <div class="post-item prev" onclick="if (event.button == 0) {location.href='{{ page.previous.url | furl }}';}">
+        <img class="i" src="{{ site.dropbox }}/posts{{ page.previous.url }}/title-s.jpg" alt="{{ page.previous.title }}" width="90" height="90"/>
+        <div class="post-item-cap">&larr;&nbsp;Ранее</div>
+        <div class="post-item-t">
+            <div class="post-item-r"><a href="{{ page.previous.url | furl }}">{{ page.previous.title }}</a></div>
+            <div class="post-item-m post-item-r">{{ page.previous.date | format_date }} | {{ page.previous.author }} | &nbsp; {% for cat in page.previous.categories %}
+                <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+                &nbsp;
+                {% endfor %}</div>
+        </div>
+    </div>
+{% endif %}
+{% if page.next %}
+    <div class="post-item next" onclick="if (event.button == 0){location.href='{{ page.next.url | furl}}';}">
+            <img class="i" src="{{ site.dropbox }}/posts{{ page.next.url }}/title-s.jpg" alt="{{ page.next.title }}" width="90" height="90"/>
+            <div class="post-item-cap">Далее&nbsp;&rarr;</div>
+            <div class="post-item-t">
+                <div class="post-item-r"><a href="{{ page.next.url | furl }}">{{ page.next.title }}</a></div>
+                <div class="post-item-m post-item-r">{{ page.next.date | format_date }} | {{ page.next.author }} | &nbsp; {% for cat in page.next.categories %}
+                    <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+                    &nbsp;
+                    {% endfor %}</div>
+            </div>
+    </div>
+{% endif %}
+</div>
