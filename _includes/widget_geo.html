@@ -7,9 +7,9 @@
         <ul class="terms">
             {% for cat in site.categories %}
             {% if geo == cat[0] %}
-            <li><span>{{ cat[0] | display_name }}</span></li>
+            <li><span>{{ cat[0] | translate }}</span></li>
             {% else %}
-            <li><a href="/geo/{{cat[0]}}/">{{ cat[0] | display_name }}</a></li>
+            <li><a href="/geo/{{cat[0]}}/">{{ cat[0] | translate }}</a></li>
             {% endif %}
             
             {% endfor %}

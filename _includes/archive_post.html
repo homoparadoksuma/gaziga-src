@@ -5,7 +5,7 @@
     <a class="author" href="/{{ item.author }}/">{{ item.author }}</a>
         <div class="geo">
          {% for cat in item.categories %}
-             <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+             <a href="/geo/{{cat}}/">{{ cat | translate }}</a>
         {% endfor %}
         </div>
 </li>

@@ -3,7 +3,7 @@ layout: post
 title:  "Мотоладакх. Занскар."
 date:   2014-01-08 22:11:58
 categories: [india]
-tags: [ладакх, занскар, лех, пенси-ла, pensi-la, падум, карша, каргил, мотоцикл, enfield]
+tags: [ладакх, занскар, лех, пенси-ла, pensi-la, падум, карша, каргил, мотоцикл, enfield, motoladakh, на мотоцикле]
 author: gagarin
 ---
 

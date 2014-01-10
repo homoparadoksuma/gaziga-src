@@ -3,7 +3,7 @@ layout: post
 title:  "Мотоладакх. Долина Нубра."
 date:   2014-01-03 11:07:58
 categories: [india]
-tags: [ладакх, долина нубра, лех, кардунг-ла, вари-ла, khardung-la, wari-la, туртук]
+tags: [ладакх, долина нубра, лех, кардунг-ла, вари-ла, khardung-la, wari-la, туртук, motoladakh, на мотоцикле]
 author: gagarin
 ---
 

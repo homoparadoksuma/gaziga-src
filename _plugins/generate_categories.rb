@@ -79,7 +79,7 @@ module Jekyll
         self.read_yaml(template_dir, template)
         self.data['category']    = category
         # Set the title for this page.
-        rus_category = site.data["categories"][category]
+        rus_category = site.data["translations"][category] || category
         title_prefix             = "#{rus_category}"
         self.data['title']       = "#{title_prefix}"
         # Set the meta-description for this page.

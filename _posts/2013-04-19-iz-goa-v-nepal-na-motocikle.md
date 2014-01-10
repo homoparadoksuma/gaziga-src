@@ -3,7 +3,7 @@ layout: post
 title:  "Из Гоа в Непал на мотоцикле"
 date:   2013-04-19 11:27:52
 categories: [india]
-tags: [на мотоцикле, bullet, enfield, Будулай, Пушкар]
+tags: [на мотоцикле, bullet, enfield, Будулай, Пушкар, Гоа, Непал]
 author: gagarin
 ---
 

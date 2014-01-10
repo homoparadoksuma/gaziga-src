@@ -10,7 +10,7 @@
     <a href="{{ post.url | furl }}#disqus_thread" data-disqus-identifier="{{ post.id | no_slash }}" class="commentsCount"></a>
     <p class="taxonomy-field geo">&nbsp;|&nbsp;
       {% for cat in post.categories %}
-        <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+        <a href="/geo/{{cat}}/">{{ cat | translate }}</a>
         &nbsp;
       {% endfor %}
     </p>

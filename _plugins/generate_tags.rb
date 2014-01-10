@@ -15,7 +15,8 @@ module Jekyll
         # Read the YAML data from the layout page.
         self.read_yaml(template_dir, template)
         self.data['tag']    = tag
-        title_prefix             = "#{tag} | Gaziga"
+        ru_tag = site.data["translations"][tag] || tag
+        title_prefix             = "#{ru_tag}"
         self.data['title']       = "#{title_prefix}"
         # Set the meta-description for this page.
         meta_description_prefix  = site.config['tag_meta_description_prefix'] || 'Tag: '

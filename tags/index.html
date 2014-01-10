@@ -8,7 +8,6 @@ title: Метки
         Метки
     </h2>
 </header>
-{{ site.authors }}
 <ul class="tagCloud">
     {% for tag in site.tags order:ascending%}
         <li><a class="" href="/tags/{{tag[0] | normalize | furl}}">{{tag[0]}}</a></li>

@@ -7,7 +7,7 @@
         <div class="post-item-t">
             <div class="post-item-r"><a href="{{ page.previous.url | furl }}">{{ page.previous.title }}</a></div>
             <div class="post-item-m post-item-r">{{ page.previous.date | format_date }} | {{ page.previous.author }} | &nbsp; {% for cat in page.previous.categories %}
-                <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+                <a href="/geo/{{cat}}/">{{ cat | translate }}</a>
                 &nbsp;
                 {% endfor %}</div>
         </div>
@@ -20,7 +20,7 @@
             <div class="post-item-t">
                 <div class="post-item-r"><a href="{{ page.next.url | furl }}">{{ page.next.title }}</a></div>
                 <div class="post-item-m post-item-r">{{ page.next.date | format_date }} | {{ page.next.author }} | &nbsp; {% for cat in page.next.categories %}
-                    <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+                    <a href="/geo/{{cat}}/">{{ cat | translate }}</a>
                     &nbsp;
                     {% endfor %}</div>
             </div>

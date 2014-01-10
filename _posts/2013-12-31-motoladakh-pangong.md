@@ -3,7 +3,7 @@ layout: post
 title:  "Мотоладакх. Пангонг-Цо."
 date:   2013-12-31 07:34:58
 categories: [india]
-tags: [ладакх, royal enfield, Будулай, озеро, пангонг]
+tags: [ладакх, royal enfield, Будулай, озеро, пангонг, motoladakh, на мотоцикле]
 author: gagarin
 ---
 

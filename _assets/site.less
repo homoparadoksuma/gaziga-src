@@ -613,6 +613,12 @@ header.pageHeader{
 }
 
 .zone-content .blog-post .post-content {
+  em {
+    font-weight: bold;
+  }
+  ul {
+    clear: both;
+  }
   .post-pager{
     border-top: @borderLine;
   }
@@ -670,12 +676,14 @@ header.pageHeader{
       left: 100px;
       top: 35px;
 
+
       a {
-        //display: block;
+        display: inline;
         -ms-text-overflow: ellipsis;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
-        width: 250px;
+        width: 240px;
+        border-bottom: 1px solid @contentBgColor;
         white-space: nowrap;
         overflow: hidden;
         color: @highColor;
@@ -685,6 +693,14 @@ header.pageHeader{
           // text-decoration: underline;
         }
       }
+    }
+
+    .post-item-r {
+       width: 240px;
+      overflow: hidden;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
     }
 
     .post-item-m {
@@ -789,6 +805,7 @@ header.search{
 .post-content, .text-content {
   margin: 0 auto;
   font-family: @contentFontFamily;
+  -webkit-font-smoothing: antialiased;
   color: @contentColor;
   line-height: 1;
 
@@ -1033,6 +1050,10 @@ header.search{
     .page .post body {
         max-width: 1040px;
     }
+}
+
+.avatar .user img{
+  border-radius: 0 !important;
 }
 
 

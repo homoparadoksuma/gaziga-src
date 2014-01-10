@@ -1,10 +1,10 @@
 ---
-layout: default
+layout: default_index
 ---
 
 <article class="geo content-item">
     <header>
-        <h1>{{ page.category | display_name }}</h1>
+        <h1>{{ page.category | translate }}</h1>
     </header>
 
     <ul class="blog-posts content-items">
@@ -15,8 +15,3 @@ layout: default
     {% endfor %}
     </ul>
 </article>
-
-{% contentfor footer %}
-{% include disqus_count.html %}
-{% endcontentfor %}
-

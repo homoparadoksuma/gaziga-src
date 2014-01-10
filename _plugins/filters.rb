@@ -33,8 +33,8 @@ module Jekyll
       return ''
     end
 
-    def display_name(input)
-      @context.registers[:site].data["categories"][input]
+    def translate(input)
+      @context.registers[:site].data["translations"][input] || input
     end
 
     def decode(input)
