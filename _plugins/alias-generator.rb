@@ -30,7 +30,7 @@
 module Jekyll
 
   class AliasGenerator < Generator
-
+    priority :lowest
     def generate(site)
       @site = site
 
@@ -51,6 +51,9 @@ module Jekyll
     end
 
     def generate_aliases(destination_path, aliases)
+      aliases ||= Array.new
+      aliases << destination_path.gsub(/-/, ' ')
+     # p destination_path.gsub(/-/, ' ')
       alias_paths ||= Array.new
       alias_paths << aliases
       alias_paths.compact!
