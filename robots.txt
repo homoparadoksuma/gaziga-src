@@ -1,8 +1,4 @@
----
-layout: nil
----
-
-User-agent: *
+User-agent: * 
 Disallow: 
 
-Sitemap: {{site.site_url}}/sitemap.xml 
+Sitemap: http://gaziga.com/sitemap.xml

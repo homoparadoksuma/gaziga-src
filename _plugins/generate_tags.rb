@@ -1,4 +1,5 @@
 module Jekyll
+  require 'babosa'
   class TagPage < Page
     def initialize(template_path, name, site, base, tag_dir, tag)
       @site  = site
@@ -33,6 +34,7 @@ module Jekyll
   end
 
   class TagIndex < TagPage
+    attr_accessor :tag, :tag_url
     def initialize(site, base, tag_dir, tag)
       template_path = File.join(base, '_layouts', 'tag_index.html')
       super(template_path, 'index.html', site, base, tag_dir, tag)
@@ -47,6 +49,8 @@ module Jekyll
       if index.render?
         index.render(self.layouts, site_payload)
         index.write(self.dest)
+        index.tag = tag
+        index.tag_url = GenerateTags.old_tag_dir(self.config['tag_dir'], tag)
         # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
         self.pages << index
       end
@@ -79,8 +83,14 @@ module Jekyll
 
     def self.tag_dir(base_dir, tag)
       base_dir = (base_dir || TAG_DIR).gsub(/^\/*(.*)\/*$/, '\1')
-      tag = tag.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase
+      tag = Jekyll::GazigaFilter.slugify(tag)
       File.join(base_dir, tag)
     end
+
+    def self.old_tag_dir(base_dir, tag)
+      base_dir = (base_dir || TAG_DIR).gsub(/^\/*(.*)\/*$/, '\1')
+      File.join(base_dir, tag)
+    end
+
   end
 end

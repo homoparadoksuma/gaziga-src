@@ -16,7 +16,7 @@
                     <div class="published">{{ page.date | format_date }} | <a href="/{{ page.author }}/">{{ page.author }}</a></div>
                     <p class="taxonomy-field geo">&nbsp;| &nbsp;
                     {% for cat in page.categories %}
-                    <a href="/geo/{{cat}}/">{{ cat | display_name }}</a>
+                    <a href="/geo/{{cat}}/">{{ cat | translate }}</a>
                     &nbsp;
                     {% endfor %}
                     </p></div></header>

@@ -2,19 +2,29 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.5)
+    babosa (0.3.11)
     blankslate (2.1.2.4)
     classifier (1.3.4)
       fast-stemmer (>= 1.0.0)
     closure-compiler (1.1.10)
     colorator (0.1)
+    colored (1.2)
     commander (4.1.5)
       highline (~> 1.6.11)
     commonjs (0.2.7)
+    ethon (0.6.2)
+      ffi (>= 1.3.0)
+      mime-types (~> 1.18)
     fast-stemmer (1.0.2)
     fastimage (1.5.5)
       addressable (~> 2.3, >= 2.3.5)
     ffi (1.9.3)
     highline (1.6.20)
+    html-proofer (0.5.0)
+      colored (~> 1.2)
+      mercenary (~> 0.2.0)
+      nokogiri (~> 1.6.0)
+      typhoeus (~> 0.6.7)
     htmlentities (4.3.1)
     iconv (1.0.4)
     jekyll (1.4.2)
@@ -42,6 +52,8 @@ GEM
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     maruku (0.7.0)
+    mercenary (0.2.1)
+    mime-types (1.25.1)
     mini_portile (0.5.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -64,6 +76,9 @@ GEM
       ref
     toml (0.1.0)
       parslet (~> 1.5.0)
+    typhoeus (0.6.7)
+      ethon (~> 0.6.2)
+    unicode_utils (1.4.0)
     yajl-ruby (1.1.0)
     yui-compressor (0.12.0)
 
@@ -71,8 +86,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  babosa
   closure-compiler
   fastimage
+  html-proofer
   htmlentities
   iconv
   jekyll
@@ -81,4 +98,5 @@ DEPENDENCIES
   less
   nokogiri
   therubyracer
+  unicode_utils
   yui-compressor

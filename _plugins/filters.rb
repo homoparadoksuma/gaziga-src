@@ -5,6 +5,7 @@ module Jekyll
     require 'fastimage'
     require 'nokogiri'
     require 'htmlentities'
+    require 'babosa'
 
     @@months = { 1 => "января", 2 => "февраля", 3 => "марта", 4 => "апреля", 5 => "мая", 6 => "июня", 7 => "июля", 8 => "августа", 9 => "сентября", 10 => "октября", 11 => "ноября", 12 => "декабря", }
 
@@ -53,6 +54,10 @@ module Jekyll
         input.gsub(/^\//, "")
     end
 
+    def self.slugify(input)
+      input.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase.to_slug.truncate(40).transliterate(:russian).normalize.to_s.chomp('/') + '/'
+    end
+
     def group_by_date(coll, field = nil)
       if field
         coll.group_by { |i| i.date.send(field) }
@@ -66,7 +71,7 @@ module Jekyll
     end
 
     def normalize(input)
-      input.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase
+      return GazigaFilter.slugify(input)
     end
 
     def process_img(input)

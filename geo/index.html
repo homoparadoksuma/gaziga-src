@@ -12,7 +12,7 @@ title: Места
 <div>
     <ul class="taxonomy taxonomy-geo">
    	{% for cat in site.categories order:ascending%}
-        <li><a class="" href="/tags/{{cat[0]}}/">{{cat[0] | display_name}}</a></li>
+        <li><a class="" href="/geo/{{cat[0]}}/">{{cat[0] | translate}}</a></li>
     {% endfor %}
 </ul>
 </div>

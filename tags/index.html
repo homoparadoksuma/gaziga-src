@@ -10,6 +10,6 @@ title: Метки
 </header>
 <ul class="tagCloud">
     {% for tag in site.tags order:ascending%}
-        <li><a class="" href="/tags/{{tag[0] | normalize | furl}}">{{tag[0]}}</a></li>
+        <li><a class="" href="/tags/{{tag[0] | normalize }}">{{tag[0]}}</a></li>
     {% endfor %}
 </ul>
