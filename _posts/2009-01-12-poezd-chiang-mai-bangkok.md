@@ -53,6 +53,6 @@ author: uma
   [14]: /poezd-chiang-mai-bangkok/upperbed.jpg
   [15]: /poezd-chiang-mai-bangkok/view-thumb.jpg "Вид из окна"
   [16]: /poezd-chiang-mai-bangkok/view.jpg
-  [17]: http://www.railway.co.th/home/default.asp?lenguage=eng
+  [17]: http://www.railway.co.th/
   [18]: http://www.seat61.com/thailand.htm
 

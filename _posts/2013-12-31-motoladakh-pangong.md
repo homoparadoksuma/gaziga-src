@@ -53,4 +53,4 @@ author: gagarin
 ![Начался асфальт](nachalsya-asfalt.jpg)
 
 Дальше за озеро проехать нельзя. Дороги есть, но туда не пускают — приграничные территории. Поэтому снова на перевал и вниз.   
-![](dalshe-za-ozero-proehat-nelz.jpg)
+![На перевал и вниз](dalshe-za-ozero-proehat-nelz.jpg)

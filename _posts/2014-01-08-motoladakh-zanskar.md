@@ -26,7 +26,7 @@ author: gagarin
 ![Будулай и дети](budulai-i-deti.jpg)
 
 Под вечер, когда уже приглядывал место для ночевки, встретил чуваков — приехали сюда из Швейцарии на великах. Год и три месяца, риал хардкор. Закемпились вместе.   
-![](pod-vecher-kogda-uzhe-priglyadyv.jpg)
+![Велосипедисты](pod-vecher-kogda-uzhe-priglyadyv.jpg)
 
 Будулай и палатка.       
 ![Утром](utrom.jpg)
@@ -60,7 +60,7 @@ author: gagarin
 
 Занскарки.   
 ![Местная тетя](mestnaya-tetya.jpg)
-![](IMG_2391.jpg)
+![Девочка](IMG_2391.jpg)
 
 Падум остался позади, курс на Каргил.      
 ![Дорога в Занскаре](doroga-v-zanskare.jpg)
